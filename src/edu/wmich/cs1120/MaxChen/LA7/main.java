@@ -1,8 +1,11 @@
 package edu.wmich.cs1120.MaxChen.LA7;
 
+import java.io.*;
+import java.util.*;
+
 public class main {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
 		PriorityQueue<Request> requestQueue = new PriorityQueue<Request>();
 		ArrayList<Course> courses = new ArrayList<Course>();
 		BufferedReader fileIn = new BufferedReader(new FileReader("course.txt"));
@@ -12,6 +15,7 @@ public class main {
 		control.readRequestFile();
 		control.processRequests();
 		control.printClassList();
+		
 	}
 
 }

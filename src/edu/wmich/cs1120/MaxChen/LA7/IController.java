@@ -1,10 +1,12 @@
 package edu.wmich.cs1120.MaxChen.LA7;
 
+import java.io.IOException;
+
 public interface IController {
 	// Read courses from input file and add each course to an arraylist of courses. Close file.
-	void readCourseFile();		// Use a try-catch block.
+	void readCourseFile() throws Exception;		// Use a try-catch block.
 	// Read each request from the request input file and use it to create a Request object.
-	void readRequestFile();  	// Use a try-catch block.
+	void readRequestFile() throws IOException;  	// Use a try-catch block.
 	// Store the request object in the requests priority queue.
 	void addRequest(Request req);
 	// Process all the requests as follows: if request can be granted, update the relevant classlist, 
