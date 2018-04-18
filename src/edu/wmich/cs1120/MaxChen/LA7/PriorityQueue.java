@@ -39,6 +39,7 @@ public class PriorityQueue<E extends Comparable<E> >{
 			 temp = temp1;
 			 temp1 = temp1.nextNode;
 		 }
+		 
 		temp.nextNode = null;
 		return (E) temp2;
 	 }

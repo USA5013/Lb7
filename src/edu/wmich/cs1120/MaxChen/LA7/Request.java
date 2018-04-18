@@ -1,6 +1,6 @@
 package edu.wmich.cs1120.MaxChen.LA7;
 
-public class Request<T> implements Comparable<Request>{
+public class Request implements Comparable<Request>{
 	String studentName;
 	String studentMajor;
 	String studentLevel;
@@ -69,7 +69,7 @@ public class Request<T> implements Comparable<Request>{
 			
 	}
 	public String toString() {
-		return null;
+		return studentName;
 	}
 
 }

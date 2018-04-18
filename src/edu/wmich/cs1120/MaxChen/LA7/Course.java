@@ -1,16 +1,16 @@
 package edu.wmich.cs1120.MaxChen.LA7;
 
 public class Course implements ICourse{
-	String coname;
-	int conum;
-	int max;
+	public String coname;
+	public int conum;
+	public int max;
 
 	public Course(String coname, int conum, int max) {
 		// TODO Auto-generated constructor stub
 		this.coname = coname;
 		this.conum = conum;
 		this.max = max;
-		
+		System.out.println(coname+ ", " + conum+", " + max);
 	}
 
 	@Override
