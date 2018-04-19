@@ -57,7 +57,9 @@ public class Controller implements IController {
 		String[] field = new String[5];
 		String[] line = new String[9];
 		while ((line[index] = fileIn1.readLine()) != null) {
+			
 			index++;
+			
 		}
 		for (int i = 0; i < line.length; i++) {
 			// System.out.println(line[i]);
@@ -85,7 +87,7 @@ public class Controller implements IController {
 	@Override
 	public void processRequests() {
 		// TODO Auto-generated method stub
-		Request request = requestQueue.dequeue();
+		Request request;
 		while ((request = requestQueue.dequeue()) != null) {
 		
 		
@@ -96,12 +98,12 @@ public class Controller implements IController {
 		}
 		else {
 			getCourse(request.courseDept,request.courseNumber).addStudent(request.studentName);
-			getCourse(request.courseDept,request.courseNumber).max++;
+			
 			
 			System.out.println(request.toString(true)+" "+request.courseDept+" "+request.courseNumber);
 			
 		}
-		getCourse(request.courseDept,request.courseNumber).printClassList();
+		
 		}
 		
 	}
@@ -124,8 +126,10 @@ public class Controller implements IController {
 	
 	public void printClassList() {
 		// TODO Auto-generated method stub
-		
-		
+		System.out.println("Class List for CS "+courses.get(0).conum);
+		System.out.println(courses.get(0).students);
+		System.out.println("Class List for CS "+courses.get(1).conum);
+		System.out.println(courses.get(1).students);
 	
 	}
 
