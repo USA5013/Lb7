@@ -68,8 +68,9 @@ public class Request implements Comparable<Request>{
 		return -1;
 			
 	}
-	public String toString() {
-		return studentName;
+	public String toString(boolean torf) {
+		
+		return studentName + " successfully registered";
 	}
 
 }

@@ -37,6 +37,7 @@ public class Controller implements IController {
 				// CN[i]=Integer.parseInt(field[1]);
 				// max[i]=Integer.parseInt(field[2]);
 				courses.add(new Course(field[0], Integer.parseInt(field[1]), Integer.parseInt(field[2])));
+				
 			}
 		}
 
@@ -85,19 +86,47 @@ public class Controller implements IController {
 	public void processRequests() {
 		// TODO Auto-generated method stub
 		Request request = requestQueue.dequeue();
+		while ((request = requestQueue.dequeue()) != null) {
+		
+		
 		System.out.println(request+ " procesed");
+		
+		if (getCourse(request.courseDept, request.courseNumber).isFull() == true) {
+			System.out.println("didn't get in the course");
+		}
+		else {
+			getCourse(request.courseDept,request.courseNumber).addStudent(request.studentName);
+			getCourse(request.courseDept,request.courseNumber).max++;
+			
+			System.out.println(request.toString(true)+" "+request.courseDept+" "+request.courseNumber);
+			
+		}
+		getCourse(request.courseDept,request.courseNumber).printClassList();
+		}
+		
 	}
 
 	@Override
 	public Course getCourse(String courseDept, int courseNumber) {
 		// TODO Auto-generated method stub
+		for(int i = 0; i < courses.size(); i++) {
+			if (courses.get(i).getname().equalsIgnoreCase(courseDept)&& courses.get(i).getnum() == courseNumber) {
+				return courses.get(i);
+			}
+//			else {
+//				System.out.println("no couurses there!");
+//				return null;
+//			}
+		}
 		return null;
 	}
 
-	@Override
+	
 	public void printClassList() {
 		// TODO Auto-generated method stub
-
+		
+		
+	
 	}
 
 }

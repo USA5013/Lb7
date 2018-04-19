@@ -32,16 +32,21 @@ public class PriorityQueue<E extends Comparable<E> >{
 	// Remove the object with highest priority (at the front of the queue) from the priority queue.
 	 @SuppressWarnings("unchecked")
 	public E dequeue() {
-		 Node<E> temp = null;
-		 Node<E> temp1 = head;
-		 Node<E> temp2 = temp1;
-		 while (temp1.nextNode != null) {
-			 temp = temp1;
-			 temp1 = temp1.nextNode;
-		 }
-		 
-		temp.nextNode = null;
-		return (E) temp2;
+//		if ( isEmpty()) {
+//			return null;
+//		}
+//		E data = head.dataValue;
+//		if (head == )
+		if (head != null) {
+		Node<E> temp = head;
+		
+		head = head.nextNode;
+		
+		return temp.dataValue;
+		}
+		else {
+			return null;
+		}
 	 }
 	
 }
