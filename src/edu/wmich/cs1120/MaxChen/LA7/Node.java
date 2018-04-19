@@ -13,7 +13,7 @@ public class Node<E> implements INode{
 		this.nextNode = nextNode;
 	}
 	@Override
-	public Object getData() {
+	public E getData() {
 		// TODO Auto-generated method stub
 		return dataValue;
 	}

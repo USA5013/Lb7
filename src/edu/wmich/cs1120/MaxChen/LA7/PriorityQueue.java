@@ -14,15 +14,18 @@ public class PriorityQueue<E extends Comparable<E> >{
 	 public void enqueue(E data) {
 		
 		Node<E> neno = new Node<E>(data);
-		Node<E> temp;
-		
-		if(head == null || head.dataValue.compareTo(neno.dataValue)== -1){
+		Node<E> temp = head;
+		if (isEmpty()) {
+			head = temp;
+		}
+		if(head == null || head.dataValue.compareTo(neno.dataValue)== 1){
 			neno.nextNode = head;
 			head = neno;
+			return;
 		}
 		else {
-			temp = head;
-			while(temp.nextNode != null && (temp.nextNode.dataValue.compareTo(neno.dataValue)== 1)) {
+			
+			while(temp.nextNode != null && (temp.nextNode.dataValue.compareTo(neno.dataValue)== -1)) {
 				temp = temp.nextNode;
 			}
 			neno.nextNode = temp.nextNode;
@@ -42,7 +45,7 @@ public class PriorityQueue<E extends Comparable<E> >{
 		
 		head = head.nextNode;
 		
-		return temp.dataValue;
+		return temp.getData();
 		}
 		else {
 			return null;

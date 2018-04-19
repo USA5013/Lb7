@@ -72,7 +72,7 @@ public class Controller implements IController {
 				// CD[i]=field[3];
 				// CN[i]=Integer.parseInt(field[4]);
 				//
-				requestQueue.enqueue(new Request(field[0], field[1], field[2], field[3], Integer.parseInt(field[4])));
+				addRequest(new Request(field[0], field[1], field[2], field[3], Integer.parseInt(field[4])));
 			}
 		}
 
@@ -81,24 +81,25 @@ public class Controller implements IController {
 	@Override
 	public void addRequest(Request req) {
 		// TODO Auto-generated method stub
-
+		requestQueue.enqueue(req);
 	}
 
 	@Override
 	public void processRequests() {
 		// TODO Auto-generated method stub
-		Request request;
-		while ((request = requestQueue.dequeue()) != null) {
-		
+//		Request request =(Request) requestQueue.dequeue();
+//		System.out.println(request.studentName);
+		while (!requestQueue.isEmpty()) {
+		Request request =(Request) requestQueue.dequeue();
+		Course course = getCourse(request.courseDept,request.courseNumber);
 		
 		System.out.println(request+ " procesed");
 		
-		if (getCourse(request.courseDept, request.courseNumber).isFull() == true) {
-			System.out.println("didn't get in the course");
+		if (course.isFull() == true) {
+			System.out.println(request.studentName+" didn't get in the course "+request.courseDept+" "+request.courseNumber);
 		}
 		else {
-			getCourse(request.courseDept,request.courseNumber).addStudent(request.studentName);
-			
+			course.addStudent(request.studentName);
 			
 			System.out.println(request.toString(true)+" "+request.courseDept+" "+request.courseNumber);
 			
@@ -127,9 +128,13 @@ public class Controller implements IController {
 	public void printClassList() {
 		// TODO Auto-generated method stub
 		System.out.println("Class List for CS "+courses.get(0).conum);
-		System.out.println(courses.get(0).students);
+		for (int i = 0; i < courses.get(0).students.size(); i++) {
+		System.out.println(courses.get(0).students.get(i));
+		}
 		System.out.println("Class List for CS "+courses.get(1).conum);
+		for (int i = 0; i < courses.get(1).students.size(); i++) {
 		System.out.println(courses.get(1).students);
+		}
 	
 	}
 

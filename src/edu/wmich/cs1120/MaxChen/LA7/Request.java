@@ -13,7 +13,7 @@ public class Request implements Comparable<Request>{
 		this.studentMajor = studentMajor;
 		this.courseDept = courseDept;
 		this.courseNumber = courseNumber;
-		yearsFromGraduation(studentLevel);
+		
 		
 	}
 	// Returns number of years to graduation (0 for seniors, 1 for juniors etc.). This is determined from the 
@@ -37,11 +37,11 @@ public class Request implements Comparable<Request>{
 ////		break;
 //		
 //		}
-		if (level == "senior")
+		if (level.equals("Senior"))
 			return 0;
-		else if (level == "juniors")
+		else if (level.equals("Junior"))
 			return 1;
-		else if (level == "sophomore")
+		else if (level.equals("Sophomore"))
 			return 2;
 		else 
 			return 3;
@@ -55,18 +55,30 @@ public class Request implements Comparable<Request>{
 	}
 	public int compareTo(Request o) {
 		// TODO Auto-generated method stub
-		if (this.Major(studentMajor) > o.Major(studentMajor)) 
+		if ((this.studentMajor.equals("CS"))&&(!o.studentMajor.equals("CS"))) 
 			return -1;
-		else if (this.Major(studentMajor) < o.Major(studentMajor))
+		else if ((!this.studentMajor.equals("CS"))&&(o.studentMajor.equals("CS")))
 			return 1;
 		else {
-			if(this.yearsFromGraduation(studentLevel) > o.yearsFromGraduation(studentLevel))
-			return -1;
-			else if(this.yearsFromGraduation(studentLevel) < o.yearsFromGraduation(studentLevel))
+			if(this.yearsFromGraduation(this.studentLevel) > o.yearsFromGraduation(o.studentLevel)) {
+				
 			return 1;
+			}
 		}
 		return -1;
-			
+//		if((this.studentMajor.equals("CS"))&&(!o.studentMajor.equals("CS"))) {
+//			return 1;
+//			
+//		}
+//		else if((!this.studentMajor.equals("CS"))&&(o.studentMajor.equals("CS"))) {
+//			return -1;
+//		}
+//		else {
+//			if(o.yearsFromGraduation(o.studentLevel) > this.yearsFromGraduation(this.studentLevel)) {
+//				return 1;
+//			}
+//		}
+//		return -1;
 	}
 	public String toString(boolean torf) {
 		
