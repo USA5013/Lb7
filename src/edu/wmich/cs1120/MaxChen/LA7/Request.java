@@ -47,12 +47,7 @@ public class Request implements Comparable<Request>{
 			return 3;
 	}
 	
-	public int Major(String major) {
-		if (major == "CS")
-			return 0;
-			else
-			return 1;
-	}
+	
 	public int compareTo(Request o) {
 		// TODO Auto-generated method stub
 		if ((this.studentMajor.equals("CS"))&&(!o.studentMajor.equals("CS"))) 
@@ -82,7 +77,7 @@ public class Request implements Comparable<Request>{
 	}
 	public String toString(boolean torf) {
 		
-		return studentName + " successfully registered";
+		return studentName + " successfully registered" + " "+courseDept +" "+ courseNumber;
 	}
 
 }

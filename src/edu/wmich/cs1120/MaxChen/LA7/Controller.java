@@ -101,7 +101,7 @@ public class Controller implements IController {
 		else {
 			course.addStudent(request.studentName);
 			
-			System.out.println(request.toString(true)+" "+request.courseDept+" "+request.courseNumber);
+			System.out.println(request.toString(true));
 			
 		}
 		
@@ -126,14 +126,16 @@ public class Controller implements IController {
 
 	
 	public void printClassList() {
+		System.out.println();
 		// TODO Auto-generated method stub
 		System.out.println("Class List for CS "+courses.get(0).conum);
 		for (int i = 0; i < courses.get(0).students.size(); i++) {
 		System.out.println(courses.get(0).students.get(i));
 		}
+		System.out.println();
 		System.out.println("Class List for CS "+courses.get(1).conum);
 		for (int i = 0; i < courses.get(1).students.size(); i++) {
-		System.out.println(courses.get(1).students);
+		System.out.println(courses.get(1).students.get(i));
 		}
 	
 	}

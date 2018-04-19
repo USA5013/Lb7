@@ -21,7 +21,7 @@ public class PriorityQueue<E extends Comparable<E> >{
 		if(head == null || head.dataValue.compareTo(neno.dataValue)== 1){
 			neno.nextNode = head;
 			head = neno;
-			return;
+			
 		}
 		else {
 			
