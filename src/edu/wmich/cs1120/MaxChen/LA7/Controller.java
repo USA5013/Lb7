@@ -17,6 +17,10 @@ public class Controller implements IController {
 	}
 
 	@Override
+	/**
+	 * @throws IOException 
+	 * read the coursesfile and store it into the courses arraylist and pass to courses class
+	 */
 	public void readCourseFile() throws Exception {
 		// TODO Auto-generated method stub
 		// String[] CD = new String[2];
@@ -42,9 +46,13 @@ public class Controller implements IController {
 		}
 
 	}
-
+	
 	@SuppressWarnings("unchecked")
 	@Override
+	/**
+	 * @throws IOException 
+	 * read the requestfile and store it into the enqueue and pass to request class
+	 */
 	public void readRequestFile() throws IOException {
 		// TODO Auto-generated method stub
 		// String[] name = new String[8];
@@ -77,14 +85,23 @@ public class Controller implements IController {
 		}
 
 	}
+	
 
-	@Override
+	/**
+	 * @param request from student
+	 * @return the enqueued request
+	 * pass request to enqueue
+	 */
 	public void addRequest(Request req) {
 		// TODO Auto-generated method stub
 		requestQueue.enqueue(req);
 	}
 
 	@Override
+	/**
+	 * dequeue the request and print the result 
+	 * 
+	 */
 	public void processRequests() {
 		// TODO Auto-generated method stub
 //		Request request =(Request) requestQueue.dequeue();
@@ -110,6 +127,11 @@ public class Controller implements IController {
 	}
 
 	@Override
+	/**
+	 * @param the dept and the number of the course
+	 * @return the object course
+	 * get the course base on the number and dept of the course
+	 */
 	public Course getCourse(String courseDept, int courseNumber) {
 		// TODO Auto-generated method stub
 		for(int i = 0; i < courses.size(); i++) {
@@ -124,7 +146,9 @@ public class Controller implements IController {
 		return null;
 	}
 
-	
+	/**
+	 * print the student’s name in each of the class
+	 */
 	public void printClassList() {
 		System.out.println();
 		// TODO Auto-generated method stub

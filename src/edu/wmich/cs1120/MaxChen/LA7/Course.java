@@ -17,6 +17,10 @@ public class Course implements ICourse{
 	}
 	
 	@Override
+	/**
+	 * @return if the course is full
+	 * see if the course is full or not
+	 */
 	public boolean isFull() {
 		// TODO Auto-generated method stub
 		if (this.students.size() >= this.max) {
@@ -28,6 +32,10 @@ public class Course implements ICourse{
 	}
 
 	@Override
+/**
+ * @param
+ * add student in to the students list
+ */
 	public void addStudent(String name) {
 		// TODO Auto-generated method stub
 		if(isFull() == false) {

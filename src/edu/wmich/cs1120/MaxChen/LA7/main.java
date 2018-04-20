@@ -4,7 +4,12 @@ import java.io.*;
 import java.util.*;
 
 public class main {
+	/**
+	 * @param args for main class
+	 * @throws IOException 
 
+	 * Use controller’s readCourseFile, readRequestFile, processRequests, printClassList
+	*/
 	public static void main(String[] args) throws Exception {
 		PriorityQueue<Request> requestQueue = new PriorityQueue<Request>();
 		ArrayList<Course> courses = new ArrayList<Course>();
